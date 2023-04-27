@@ -4,40 +4,58 @@
 #include <condition_variable>
 
 #include "checkPrime.h"
+#include "checkComs.h"
 
 #include <iostream>
 
 using namespace std;
 
-void checkPrimeThreaded(vector<int>& primes, vector<int>& output, mutex& outputMutex, vector<int>& status, const int threadNumber, const int threadCount, const int max)
+void checkPrimeThreaded(vector<int>& primes, CheckComs& communications)
 {
-    for (size_t number = 3 + threadNumber * 2; number < max; number += threadCount * 2)
-    {   
-        status[threadNumber] = number;
-        // if (status[threadNumber] == 3)
-        // {
-        //     status[threadNumber] = 4;
-        //     while (status[threadNumber] != 1)
-        //     { 
-        //     }
-        // }
-        if (number > primes.back() * primes.back())
-        {
-            // status[threadNumber] = 4;
-            while (number > primes.back() * primes.back())
-            {
-            }
-            // status[threadNumber] = 1;
-        }
+    // for (size_t number = 3 + threadNumber * 2; number < max; number += threadCount * 2)
+    // {   
+    //     status[threadNumber] = number;
+    //     // if (status[threadNumber] == 3)
+    //     // {
+    //     //     status[threadNumber] = 4;
+    //     //     while (status[threadNumber] != 1)
+    //     //     { 
+    //     //     }
+    //     // }
+    //     if (number > primes.back() * primes.back())
+    //     {
+    //         // status[threadNumber] = 4;
+    //         while (number > primes.back() * primes.back())
+    //         {
+    //         }
+    //         // status[threadNumber] = 1;
+    //     }
 
-        bool prime = checkPrimeF(primes, number);
+    //     bool prime = checkPrimeF(primes, number);
         
-        if (prime)
+    //     if (prime)
+    //     {
+    //         lock_guard<mutex> lock(outputMutex);
+    //         output.push_back(number);
+    //     }
+    // }
+    // status[threadNumber] = max + 1;
+    // cout << "Thread " << threadNumber << " is exiting" << endl;
+    while (!communications.ShouldExit())
+    {
+        if (!communications.HasJob())
         {
-            lock_guard<mutex> lock(outputMutex);
-            output.push_back(number);
+            continue;
         }
+        CheckJob currentJob = communications.ReceiveJob();
+        for (size_t number = currentJob.lower; number < currentJob.upper; number += currentJob.increment)
+        {
+            bool prime = checkPrimeF(primes, number);
+            if (prime)
+            {
+                communications.AddResult(number);
+            }
+        }
+        communications.StopWorking();
     }
-    status[threadNumber] = max + 1;
-    cout << "Thread " << threadNumber << " is exiting" << endl;
 }
