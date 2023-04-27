@@ -1,0 +1,29 @@
+In file included from C:/msys64/mingw64/include/c++/11.3.0/vector:66,
+                 from main.cpp:2:
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_uninitialized.h: In instantiation of '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >; _ForwardIterator = int*]':
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_uninitialized.h:333:37:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = __gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >; _ForwardIterator = int*; _Tp = int]'
+C:/msys64/mingw64/include/c++/11.3.0/bits/vector.tcc:751:34:   required from 'void std::vector<_Tp, _Alloc>::_M_range_insert(std::vector<_Tp, _Alloc>::iterator, _ForwardIterator, _ForwardIterator, std::forward_iterator_tag) [with _ForwardIterator = __gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >; _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::iterator = std::vector<int>::iterator]'
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_vector.h:1665:19:   required from 'void std::vector<_Tp, _Alloc>::_M_insert_dispatch(std::vector<_Tp, _Alloc>::iterator, _InputIterator, _InputIterator, std::__false_type) [with _InputIterator = __gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >; _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::iterator = std::vector<int>::iterator]'
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_vector.h:1383:22:   required from 'std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::insert(std::vector<_Tp, _Alloc>::const_iterator, _InputIterator, _InputIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >; <template-parameter-2-2> = void; _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::iterator = std::vector<int>::iterator; std::vector<_Tp, _Alloc>::const_iterator = std::vector<int>::const_iterator]'
+main.cpp:174:22:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_uninitialized.h:138:72: error: static assertion failed: result type must be constructible from value type of input range
+  138 |       static_assert(is_constructible<_ValueType2, decltype(*__first)>::value,
+      |                                                                        ^~~~~
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_uninitialized.h:138:72: note: 'std::integral_constant<bool, false>::value' evaluates to false
+In file included from C:/msys64/mingw64/include/c++/11.3.0/bits/char_traits.h:39,
+                 from C:/msys64/mingw64/include/c++/11.3.0/ios:40,
+                 from C:/msys64/mingw64/include/c++/11.3.0/ostream:38,
+                 from C:/msys64/mingw64/include/c++/11.3.0/iostream:39,
+                 from main.cpp:1:
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_algobase.h: In instantiation of 'static _OI std::__copy_move<false, false, std::random_access_iterator_tag>::__copy_m(_II, _II, _OI) [with _II = std::vector<int>*; _OI = int*]':
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_algobase.h:495:30:   required from '_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = false; _II = std::vector<int>*; _OI = int*]'
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_algobase.h:522:42:   required from '_OI std::__copy_move_a1(_II, _II, _OI) [with bool _IsMove = false; _II = std::vector<int>*; _OI = int*]'
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_algobase.h:530:31:   required from '_OI std::__copy_move_a(_II, _II, _OI) [with bool _IsMove = false; _II = __gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >; _OI = __gnu_cxx::__normal_iterator<int*, std::vector<int> >]'
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_algobase.h:620:7:   required from '_OI std::copy(_II, _II, _OI) [with _II = __gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >; _OI = __gnu_cxx::__normal_iterator<int*, std::vector<int> >]'
+C:/msys64/mingw64/include/c++/11.3.0/bits/vector.tcc:744:16:   required from 'void std::vector<_Tp, _Alloc>::_M_range_insert(std::vector<_Tp, _Alloc>::iterator, _ForwardIterator, _ForwardIterator, std::forward_iterator_tag) [with _ForwardIterator = __gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >; _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::iterator = std::vector<int>::iterator]'
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_vector.h:1665:19:   required from 'void std::vector<_Tp, _Alloc>::_M_insert_dispatch(std::vector<_Tp, _Alloc>::iterator, _InputIterator, _InputIterator, std::__false_type) [with _InputIterator = __gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >; _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::iterator = std::vector<int>::iterator]'
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_vector.h:1383:22:   required from 'std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::insert(std::vector<_Tp, _Alloc>::const_iterator, _InputIterator, _InputIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >; <template-parameter-2-2> = void; _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::iterator = std::vector<int>::iterator; std::vector<_Tp, _Alloc>::const_iterator = std::vector<int>::const_iterator]'
+main.cpp:174:22:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/stl_algobase.h:385:25: error: cannot convert 'std::vector<int>' to 'int' in assignment
+  385 |               *__result = *__first;
+      |               ~~~~~~~~~~^~~~~~~~~~
