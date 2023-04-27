@@ -1,0 +1,73 @@
+In file included from C:/msys64/mingw64/include/c++/11.3.0/thread:43,
+                 from main.cpp:5:
+C:/msys64/mingw64/include/c++/11.3.0/bits/std_thread.h: In instantiation of 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(std::vector<int>&, std::queue<int>&, std::queue<int>&, std::vector<int>&, int); _Args = {std::vector<int, std::allocator<int> >&, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::vector<int, std::allocator<int> >&, int&}; <template-parameter-1-3> = void]':
+main.cpp:68:114:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/std_thread.h:130:72: error: static assertion failed: std::thread arguments must be invocable after conversion to rvalues
+  130 |                                       typename decay<_Args>::type...>::value,
+      |                                                                        ^~~~~
+C:/msys64/mingw64/include/c++/11.3.0/bits/std_thread.h:130:72: note: 'std::integral_constant<bool, false>::value' evaluates to false
+C:/msys64/mingw64/include/c++/11.3.0/bits/std_thread.h: In instantiation of 'struct std::thread::_Invoker<std::tuple<void (*)(std::vector<int, std::allocator<int> >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::vector<int, std::allocator<int> >&, int), std::vector<int, std::allocator<int> >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::vector<int, std::allocator<int> >, int> >':
+C:/msys64/mingw64/include/c++/11.3.0/bits/std_thread.h:203:13:   required from 'struct std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (*)(std::vector<int, std::allocator<int> >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::vector<int, std::allocator<int> >&, int), std::vector<int, std::allocator<int> >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::vector<int, std::allocator<int> >, int> > >'
+C:/msys64/mingw64/include/c++/11.3.0/bits/std_thread.h:143:29:   required from 'std::thread::thread(_Callable&&, _Args&& ...) [with _Callable = void (&)(std::vector<int>&, std::queue<int>&, std::queue<int>&, std::vector<int>&, int); _Args = {std::vector<int, std::allocator<int> >&, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::vector<int, std::allocator<int> >&, int&}; <template-parameter-1-3> = void]'
+main.cpp:68:114:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/std_thread.h:252:11: error: no type named 'type' in 'struct std::thread::_Invoker<std::tuple<void (*)(std::vector<int, std::allocator<int> >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::vector<int, std::allocator<int> >&, int), std::vector<int, std::allocator<int> >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::vector<int, std::allocator<int> >, int> >::__result<std::tuple<void (*)(std::vector<int, std::allocator<int> >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::vector<int, std::allocator<int> >&, int), std::vector<int, std::allocator<int> >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::vector<int, std::allocator<int> >, int> >'
+  252 |           _M_invoke(_Index_tuple<_Ind...>)
+      |           ^~~~~~~~~
+C:/msys64/mingw64/include/c++/11.3.0/bits/std_thread.h:256:9: error: no type named 'type' in 'struct std::thread::_Invoker<std::tuple<void (*)(std::vector<int, std::allocator<int> >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::vector<int, std::allocator<int> >&, int), std::vector<int, std::allocator<int> >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::vector<int, std::allocator<int> >, int> >::__result<std::tuple<void (*)(std::vector<int, std::allocator<int> >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::queue<int, std::deque<int, std::allocator<int> > >&, std::vector<int, std::allocator<int> >&, int), std::vector<int, std::allocator<int> >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::reference_wrapper<std::queue<int, std::deque<int, std::allocator<int> > > >, std::vector<int, std::allocator<int> >, int> >'
+  256 |         operator()()
+      |         ^~~~~~~~
+In file included from C:/msys64/mingw64/include/c++/11.3.0/mutex:44,
+                 from main.cpp:6:
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h: In instantiation of 'void std::unique_lock<_Mutex>::unlock() [with _Mutex = std::vector<std::queue<int> >]':
+main.cpp:105:29:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:195:24: error: 'std::unique_lock<std::vector<std::queue<int> > >::mutex_type' {aka 'class std::vector<std::queue<int> >'} has no member named 'unlock'
+  195 |             _M_device->unlock();
+      |             ~~~~~~~~~~~^~~~~~
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h: In instantiation of 'void std::unique_lock<_Mutex>::unlock() [with _Mutex = std::vector<int>]':
+main.cpp:134:20:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:195:24: error: 'std::unique_lock<std::vector<int> >::mutex_type' {aka 'class std::vector<int>'} has no member named 'unlock'
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h: In instantiation of 'void std::unique_lock<_Mutex>::lock() [with _Mutex = std::queue<int>]':
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:69:2:   required from 'std::unique_lock<_Mutex>::unique_lock(std::unique_lock<_Mutex>::mutex_type&) [with _Mutex = std::queue<int>; std::unique_lock<_Mutex>::mutex_type = std::queue<int>]'
+main.cpp:78:54:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:139:24: error: 'std::unique_lock<std::queue<int> >::mutex_type' {aka 'class std::queue<int>'} has no member named 'lock'
+  139 |             _M_device->lock();
+      |             ~~~~~~~~~~~^~~~
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h: In instantiation of 'void std::unique_lock<_Mutex>::unlock() [with _Mutex = std::queue<int>]':
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:104:4:   required from 'std::unique_lock<_Mutex>::~unique_lock() [with _Mutex = std::queue<int>]'
+main.cpp:78:54:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:195:24: error: 'std::unique_lock<std::queue<int> >::mutex_type' {aka 'class std::queue<int>'} has no member named 'unlock'
+  195 |             _M_device->unlock();
+      |             ~~~~~~~~~~~^~~~~~
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h: In instantiation of 'void std::unique_lock<_Mutex>::lock() [with _Mutex = std::vector<int>]':
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:69:2:   required from 'std::unique_lock<_Mutex>::unique_lock(std::unique_lock<_Mutex>::mutex_type&) [with _Mutex = std::vector<int>; std::unique_lock<_Mutex>::mutex_type = std::vector<int>]'
+main.cpp:79:41:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:139:24: error: 'std::unique_lock<std::vector<int> >::mutex_type' {aka 'class std::vector<int>'} has no member named 'lock'
+  139 |             _M_device->lock();
+      |             ~~~~~~~~~~~^~~~
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h: In instantiation of 'void std::unique_lock<_Mutex>::lock() [with _Mutex = std::vector<std::queue<int> >]':
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:69:2:   required from 'std::unique_lock<_Mutex>::unique_lock(std::unique_lock<_Mutex>::mutex_type&) [with _Mutex = std::vector<std::queue<int> >; std::unique_lock<_Mutex>::mutex_type = std::vector<std::queue<int> >]'
+main.cpp:95:42:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:139:24: error: 'std::unique_lock<std::vector<std::queue<int> > >::mutex_type' {aka 'class std::vector<std::queue<int> >'} has no member named 'lock'
+In file included from C:/msys64/mingw64/include/c++/11.3.0/mutex:44,
+                 from checkThreaded.cpp:4:
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h: In instantiation of 'void std::unique_lock<_Mutex>::unlock() [with _Mutex = std::queue<int>]':
+checkThreaded.cpp:19:25:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:195:24: error: 'std::unique_lock<std::queue<int> >::mutex_type' {aka 'class std::queue<int>'} has no member named 'unlock'
+  195 |             _M_device->unlock();
+      |             ~~~~~~~~~~~^~~~~~
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h: In instantiation of 'void std::unique_lock<_Mutex>::lock() [with _Mutex = std::queue<int>]':
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:69:2:   required from 'std::unique_lock<_Mutex>::unique_lock(std::unique_lock<_Mutex>::mutex_type&) [with _Mutex = std::queue<int>; std::unique_lock<_Mutex>::mutex_type = std::queue<int>]'
+checkThreaded.cpp:16:36:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:139:24: error: 'std::unique_lock<std::queue<int> >::mutex_type' {aka 'class std::queue<int>'} has no member named 'lock'
+  139 |             _M_device->lock();
+      |             ~~~~~~~~~~~^~~~
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h: In instantiation of 'void std::unique_lock<_Mutex>::lock() [with _Mutex = std::vector<int>]':
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:69:2:   required from 'std::unique_lock<_Mutex>::unique_lock(std::unique_lock<_Mutex>::mutex_type&) [with _Mutex = std::vector<int>; std::unique_lock<_Mutex>::mutex_type = std::vector<int>]'
+checkThreaded.cpp:28:32:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:139:24: error: 'std::unique_lock<std::vector<int> >::mutex_type' {aka 'class std::vector<int>'} has no member named 'lock'
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h: In instantiation of 'void std::unique_lock<_Mutex>::unlock() [with _Mutex = std::vector<int>]':
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:104:4:   required from 'std::unique_lock<_Mutex>::~unique_lock() [with _Mutex = std::vector<int>]'
+checkThreaded.cpp:28:32:   required from here
+C:/msys64/mingw64/include/c++/11.3.0/bits/unique_lock.h:195:24: error: 'std::unique_lock<std::vector<int> >::mutex_type' {aka 'class std::vector<int>'} has no member named 'unlock'
+  195 |             _M_device->unlock();
+      |             ~~~~~~~~~~~^~~~~~
