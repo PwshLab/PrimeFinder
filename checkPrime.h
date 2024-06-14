@@ -3,7 +3,10 @@
 
 #include <vector>
 
-bool checkPrime(vector<uint64_t>& primes, vector<uint64_t>& inversePrimes, uint32_t number);
+typedef unsigned int uint32_t;
+typedef unsigned long long uint64_t;
+
+bool checkPrime(std::vector<uint64_t>& primes, std::vector<uint64_t>& inversePrimes, uint32_t number);
 
 bool checkPrimeAVX(std::vector<uint64_t>& primes, std::vector<uint64_t>& inversePrimes, uint32_t number);
 
