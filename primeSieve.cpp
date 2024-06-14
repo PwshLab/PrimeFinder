@@ -18,7 +18,7 @@ bool checkPrime(vector<uint32_t>& primes, uint32_t number)
     {   
         currentPrime = primes[i];
         comparisonValue = (number / currentPrime) * currentPrime;
-        if (comparisonValue == currentPrime)
+        if (comparisonValue == number)
         {
             return false;
         }
