@@ -7,6 +7,9 @@
 
 using namespace std;
 
+typedef unsigned int uint32_t;
+typedef unsigned long long uint64_t;
+
 uint32_t getReciprocal(uint32_t number)
 {
     return UINT32_MAX / number + 1;
