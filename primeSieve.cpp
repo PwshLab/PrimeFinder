@@ -36,7 +36,7 @@ int main()
 {   
     auto started = chrono::high_resolution_clock::now();
 
-    const uint32_t max = pow(2, 24);
+    const uint32_t max = pow(2, 24); // 16777216
     vector<uint32_t> primes = {2};
 
     // https://de.wikipedia.org/wiki/Primzahlsatz
