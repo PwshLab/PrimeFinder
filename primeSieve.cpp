@@ -36,7 +36,7 @@ int main()
 {   
     auto started = chrono::high_resolution_clock::now();
 
-    uint32_t max = UINT32_MAX;
+    const uint32_t max = pow(2, 24);
     vector<uint32_t> primes = {2};
 
     // https://de.wikipedia.org/wiki/Primzahlsatz
@@ -61,5 +61,5 @@ int main()
 
     cout << chrono::duration_cast<chrono::milliseconds>(ended-started).count() << "ms Bearbeitungszeit" << endl;
 
-    cout << endl << "Fuer bessere Performace im Compiler AVX und Optimierungen aktivieren (Optionen '-march=native -Ofast' bei GCC)" << endl;
+    // cout << endl << "Fuer bessere Performace im Compiler AVX und Optimierungen aktivieren (Optionen '-march=native -Ofast' bei GCC)" << endl;
 }
