@@ -69,7 +69,7 @@ bool checkPrimeAVX(vector<uint64_t>& primes, vector<uint64_t>& inversePrimes, ui
         __m256i primesVector = _mm256_lddqu_si256((__m256i*)(primes.data() + offsetPosition));
         __m256i inversePrimesVector = _mm256_lddqu_si256((__m256i*)(inversePrimes.data() + offsetPosition));
 
-        __m256i comparisonVector = _mm256_sub_epi64(mul64_avx2(_mm256_sll_epi64(mul64_avx2(originalNumberVector, inversePrimesVector), _mm256_castsi256_si128(_mm256_set1_epi64x(32))), primesVector), originalNumberVector);
+        __m256i comparisonVector = _mm256_sub_epi64(mul64_avx2(_mm256_srli_epi64(mul64_avx2(originalNumberVector, inversePrimesVector), 32), primesVector), originalNumberVector);
         
         _mm256_storeu_si256((__m256i*)(results.data()), comparisonVector);
 
