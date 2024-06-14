@@ -7,23 +7,21 @@
 
 using namespace std;
 
-bool checkPrime(vector<uint32_t>& primes, uint32_t number)
+bool checkPrime(vector<uint32_t>& primes, vector<uint32_t>& primesInverse, uint32_t number)
 {   
     if ((number % 2 == 0 && number != 2) || (number % 3 == 0 && number != 3))
         return false;
 
-    uint32_t currentPrime;
     uint32_t comparisonValue;
-    for (size_t i = 0; i < primes.size(); i++)
+    for (size_t i = 0; i < primesInverse.size(); i++)
     {   
-        currentPrime = primes[i];
-        comparisonValue = (number / currentPrime) * currentPrime;
+        comparisonValue = (((uint64_t)number * primesInverse[i]) >> 32) * primes[i];
         if (comparisonValue == number)
         {
             return false;
         }
 
-        if (currentPrime * currentPrime >= number)
+        if (primes[i] * primes[i] >= number)
         {
             return true;
         }
@@ -32,23 +30,30 @@ bool checkPrime(vector<uint32_t>& primes, uint32_t number)
     return false;
 }
 
+uint32_t getReciprocal(uint32_t number)
+{
+    return UINT32_MAX / number + 1;
+}
+
 int main()
 {   
     auto started = chrono::high_resolution_clock::now();
 
     const uint32_t max = pow(2, 24); // 16777216
     vector<uint32_t> primes = {2};
+    vector<uint32_t> primesInverse = {getReciprocal(2)};
 
     // https://de.wikipedia.org/wiki/Primzahlsatz
-    int estimate = ceilf( ((float)max / log(max)) * 1.1f ); // 10% korrektur nach oben zur sicherheit
+    const int estimate = ceilf( ((float)max / log(max)) * 1.1f ); // 10% korrektur nach oben zur sicherheit
     primes.reserve(estimate);
     
     int i = 3;
     while (i < max)
     {   
-        if (checkPrime(primes, i))
+        if (checkPrime(primes, primesInverse, i))
         {   
             primes.push_back(i);
+            primesInverse.push_back(getReciprocal(i));
         }
         i += 2;
     }
