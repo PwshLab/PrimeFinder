@@ -3,7 +3,6 @@
 #include <chrono>
 #include <math.h>
 
-#include "numberPair.h"
 #include "checkPrime.h"
 
 using namespace std;
@@ -34,27 +33,12 @@ int main()
             primesInverse.push_back(getReciprocal(i));
         }
     }
-
-    for (size_t i = 0; i < primes.size() - 1; i++)
-    {
-        if (primes[i] + 2 == primes[i + 1])
-        {
-            primePairs.push_back(NumberPair(primes[i], primes[i + 1]));
-        }
-    }
     
     auto ended = chrono::high_resolution_clock::now();
-    
-    
-    for (size_t i = 0; i < primePairs.size(); i++)
-    {
-        cout << primePairs[i].int1 << " " << primePairs[i].int2 << endl;
-    }
     
     cout << endl << "Primzahlen bis " << max << endl << endl;
 
     cout << primes.size() << " Primzahlen gefunden  (" << estimate << " erwartet)" << endl;
-    cout << primePairs.size() << " Primzahlpaare gefunden" << endl;
 
     cout << chrono::duration_cast<chrono::milliseconds>(ended-started).count() << "ms Bearbeitungszeit" << endl;
 }
