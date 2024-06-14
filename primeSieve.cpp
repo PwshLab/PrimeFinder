@@ -46,6 +46,7 @@ int main()
     // https://de.wikipedia.org/wiki/Primzahlsatz
     const int estimate = ceilf( ((float)max / log(max)) * 1.1f ); // 10% korrektur nach oben zur sicherheit
     primes.reserve(estimate);
+    primesInverse.reserve(estimate);
     
     int i = 3;
     while (i < max)
