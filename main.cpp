@@ -8,38 +8,30 @@
 
 using namespace std;
 
+uint32_t getReciprocal(uint32_t number)
+{
+    return UINT32_MAX / number + 1;
+}
+
 int main()
 {   
     auto started = chrono::high_resolution_clock::now();
 
-    int max = 10000000; // für höhere werte wird der double type benötigt (nicht implementiert bei avx wegen start verringerter leistung)
-
-    vector<int> primes = {2};
-    #ifdef __AVX__
-    vector<float> inversePrimes = {1.0f/2};
-    #endif
-    vector<NumberPair> primePairs = {};
+    const uint32_t max = pow(2, 24); // 16777216
+    vector<uint32_t> primes = {2};
+    vector<uint32_t> primesInverse = {getReciprocal(2)};
 
     // https://de.wikipedia.org/wiki/Primzahlsatz
-    int estimate = ceilf( ((float)max / log(max)) * 1.1f ); // 10% korrektur nach oben zur sicherheit (spart 1ms bei ausfürung)
+    const int estimate = ceilf( ((float)max / log(max)) * 1.1f ); // 10% korrektur nach oben zur sicherheit (spart 1ms bei ausfürung)
     primes.reserve(estimate);
-    #ifdef __AVX__
-    inversePrimes.reserve(estimate);
-    #endif
-    primePairs.reserve(estimate / 10);
+    primesInverse.reserve(estimate);
     
     for (size_t i = 3; i < max; i += 2)
     {   
-        #ifdef __AVX__
-        if (checkPrimeAVX(primes, inversePrimes, i))
-        #else
-        if (checkPrimeF(primes, i))
-        #endif
+        if (checkPrimeAVX(primes, primesInverse, i))
         {   
             primes.push_back(i);
-            #ifdef __AVX__
-            inversePrimes.push_back(1.0f/i);
-            #endif
+            primesInverse.push_back(getReciprocal(i));
         }
     }
 
