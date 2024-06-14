@@ -3,11 +3,8 @@
 
 #include <vector>
 
-bool checkPrimeF(std::vector<int>& primes, int number);
-bool checkPrimeD(std::vector<int>& primes, int number);
+bool checkPrime(vector<uint32_t>& primes, vector<uint32_t>& primesInverse, uint32_t number);
 
-#ifdef __AVX__
-bool checkPrimeAVX(std::vector<int>& primes, std::vector<float>& inversePrimes, int number);
-#endif
+bool checkPrimeAVX(std::vector<uint32_t>& primes, std::vector<uint32_t>& primesInverse, uint32_t number);
 
 #endif
